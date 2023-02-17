@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import { Container, Name, Description, Avatar, Tag, Location, Stats, StatsItem, Label, Quantity } from './Profile.styled';
 
 export const Profile = (
-    {props: {username, tag, location, avatar,
+    {user: {username, tag, location, avatar,
          stats: {followers, views, likes}}}) => {
     return <Container class="profile">
     <Description>

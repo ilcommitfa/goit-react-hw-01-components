@@ -6,8 +6,8 @@ import data from 'components/Statistics/data.json';
 export const App = () => {
     return (
         <div>
-            <Profile props={user} />
-            <Statistics props={data}/>
+            <Profile user={user} />
+            <Statistics title="Upload stats" stats={data}/>
         </div>
     );
 };

@@ -1,37 +1,31 @@
-// import PropTypes from 'prop-types';
-import {} from './Statistics.styled';
+import PropTypes from 'prop-types';
+import {Container, Title, List, ListItem, Label} from './Statistics.styled';
 
-export const Statistics = ({props: {title, stats}}) => {
-    return <section class="statistics">
-    <h2 class="title">Upload stats</h2>
+const colors = ['#984ED0', '#CDD25A', '#FDB05E', '#0475ED', '#F02C6E'];
+
+export const Statistics = ({title, stats}) => {
+    return (
+  <Container>
+  {title && <Title>{title}</Title>}
     
-    <ul class="stat-list">
-      <li class="item">
-        <span class="label">.docx</span>
-        <span class="percentage">4%</span>
-      </li>
-      <li class="item">
-        <span class="label">.mp3</span>
-        <span class="percentage">14%</span>
-      </li>
-      <li class="item">
-        <span class="label">.pdf</span>
-        <span class="percentage">41%</span>
-      </li>
-      <li class="item">
-        <span class="label">.mp4</span>
-        <span class="percentage">12%</span>
-      </li>
-    </ul>
-  </section>;
-};
+  <List>
+    {stats.map(({id, label, percentage}, index) => (
+      <ListItem key={id} style={{background: colors[index]}}>
+        <Label>{label}</Label>
+        <span class="percentage">{percentage}</span>
+      </ListItem>
+    ))}
+  </List>
+  </Container>
+  );};
 
-// Profile.propTypes = {
-//   name: PropTypes.string.isRequired,
-//   tag: PropTypes.string.isRequired,
-//   location: PropTypes.string.isRequired,
-//   avatar: PropTypes.string.isRequired,
-//   followers: PropTypes.number.isRequired,
-//   views: PropTypes.number.isRequired,
-//   likes: PropTypes.number.isRequired,
-// };
+Statistics.propTypes = {
+  title: PropTypes.string,
+  stats: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.string.isRequired,
+      label: PropTypes.string.isRequired,
+      percentage: PropTypes.number.isRequired,
+    }).isRequired
+  ).isRequired,
+};
