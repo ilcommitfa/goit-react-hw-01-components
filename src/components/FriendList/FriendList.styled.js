@@ -18,7 +18,8 @@ export const ListItem = styled.li`
     margin: 0px auto;
     padding: 10px;
     border-radius: 5px;
-    box-shadow: 0px 1px 3px rgb(0 0 0 / 30%), 0px 1px 1px rgb(0 0 0 / 30%), 0px 2px 1px rgb(0 0 0 / 30%)`;
+    box-shadow: 0px 1px 3px rgb(0 0 0 / 30%), 0px 1px 1px rgb(0 0 0 / 30%), 0px 2px 1px rgb(0 0 0 / 30%)
+`;
 
 export const Status = styled.span`
     margin-right: 15px;
@@ -35,10 +36,11 @@ export const Avatar = styled.img`
     background-color: rgb(236, 219, 219);
     border-radius: 8px;
     box-shadow: 0px 1px 3px rgb(0 0 0 / 30%), 0px 1px 1px rgb(0 0 0 / 30%), 0px 2px 1px rgb(0 0 0 / 30%)
-  `;
+`;
+
 export const Name = styled.p`
     font-size: 20px;
     font-weight: 600;
     margin-right: 10px;
     font-weight: 700;
-    `;
+`;
