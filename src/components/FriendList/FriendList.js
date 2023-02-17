@@ -1,29 +1,27 @@
 import PropTypes from 'prop-types';
-import {FriendsList} from './FriendList.styled';
+import {List, ListItem, Status, Avatar, Name} from './FriendList.styled';
+import { FaCircle } from 'react-icons/fa';
 
-export const FriendsList = ({friends}) => {
+export const FriendList = ({friends}) => {
     return (
-  <Container>
-  {title && <Title>{title}</Title>}
-    
-  <List>
-    {stats.map({avatar, name, isOnline} => (
-      <ListItem key={id}>
-        <Label>{label}</Label>
-        <span class="percentage">{percentage}</span>
-      </ListItem>
-    ))}
-  </List>
-  </Container>
-  );};
-
-Statistics.propTypes = {
-  title: PropTypes.string,
-  stats: PropTypes.arrayOf(
-    PropTypes.shape({
-      id: PropTypes.string.isRequired,
-      label: PropTypes.string.isRequired,
-      percentage: PropTypes.number.isRequired,
-    }).isRequired
-  ).isRequired,
-};
+      <List>
+        {friends.map(({avatar, name, isOnline, id}) => (
+          <ListItem key={id}>
+            <Status isOnline={isOnline}><FaCircle /></Status>
+            <Avatar src={avatar} alt="User avatar" width="48" />
+            <Name>{name}</Name>  
+          </ListItem>
+        ))}
+      </List>
+  )}
+  
+  FriendList.propTypes = {
+    friends: PropTypes.arrayOf(
+      PropTypes.shape({
+        id: PropTypes.number.isRequired,
+        isOnline: PropTypes.bool.isRequired,
+        avatar: PropTypes.string.isRequired,
+        name: PropTypes.string.isRequired,
+      })
+    ),
+  };
